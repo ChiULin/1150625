@@ -404,6 +404,21 @@
       background-size: cover;
       background-position: center;
     }
+    .city-kaohsiung {
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=60');
+      background-size: cover;
+      background-position: center;
+    }
+    .city-hualien {
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=60');
+      background-size: cover;
+      background-position: center;
+    }
+    .city-penghu {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=60');
+      background-size: cover;
+      background-position: center;
+    }
     .city-card.locked {
       filter: grayscale(.8);
     }
@@ -1177,6 +1192,51 @@
             { id: 'sicao', name: '四草綠色隧道', emoji: '🛶', type: '自然', rarity: 4, exp: 145, coins: 135, hidden: true },
             { id: 'blueprint', name: '藍晒圖文創園區', emoji: '📘', type: '藝術', rarity: 3, exp: 110, coins: 105, hidden: true }
           ]
+        },
+        {
+          id: 'kaohsiung',
+          name: '高雄',
+          className: 'city-kaohsiung',
+          intro: '港都風情、海岸絕景與現代藝術的融合城市。',
+          unlockRule: '擊敗古都守護神後解鎖',
+          boss: { name: '港都戰神', hp: 280, rewardExp: 680, rewardCoins: 680, title: '港都霸主' },
+          scenes: [
+            { id: 'lotus', name: '蓮池潭', emoji: '🏯', type: '景觀', rarity: 3, exp: 105, coins: 95, hidden: false },
+            { id: 'museum', name: '佛光山美術館', emoji: '🎨', type: '藝術', rarity: 3, exp: 100, coins: 100, hidden: false },
+            { id: 'pier2', name: '駁二藝術特區', emoji: '🎭', type: '文創', rarity: 2, exp: 75, coins: 80, hidden: false },
+            { id: 'likaobeach', name: '麗島沙灘', emoji: '🏖️', type: '海濱', rarity: 4, exp: 150, coins: 140, hidden: true },
+            { id: 'fo', name: '左營舊城', emoji: '🏛️', type: '歷史', rarity: 3, exp: 115, coins: 110, hidden: true }
+          ]
+        },
+        {
+          id: 'hualien',
+          name: '花蓮',
+          className: 'city-hualien',
+          intro: '山海壯闊、原住民文化與地質奇觀的冒險天堂。',
+          unlockRule: '擊敗港都戰神後解鎖',
+          boss: { name: '山海守護者', hp: 320, rewardExp: 800, rewardCoins: 800, title: '花蓮探險王' },
+          scenes: [
+            { id: 'taroko', name: '太魯閣峽谷', emoji: '⛰️', type: '自然', rarity: 3, exp: 110, coins: 100, hidden: false },
+            { id: 'qingshui', name: '清水斷崖', emoji: '🌊', type: '景觀', rarity: 3, exp: 105, coins: 105, hidden: false },
+            { id: 'zhuilu', name: '竹子里親水公園', emoji: '🏞️', type: '自然', rarity: 2, exp: 80, coins: 85, hidden: false },
+            { id: 'liwu', name: '利吾露營區', emoji: '⛺', type: '秘境', rarity: 4, exp: 155, coins: 145, hidden: true },
+            { id: 'fenqing', name: '芬園蝴蝶生態區', emoji: '🦋', type: '生態', rarity: 3, exp: 120, coins: 115, hidden: true }
+          ]
+        },
+        {
+          id: 'penghu',
+          name: '澎湖',
+          className: 'city-penghu',
+          intro: '離島風采、玄武岩地貌與海洋文化的最終秘境。',
+          unlockRule: '擊敗山海守護者後解鎖',
+          boss: { name: '澎湖海神', hp: 360, rewardExp: 950, rewardCoins: 950, title: '澎湖傳奇' },
+          scenes: [
+            { id: 'jibei', name: '吉貝嶼', emoji: '🏝️', type: '海島', rarity: 3, exp: 115, coins: 110, hidden: false },
+            { id: 'xuanwu', name: '玄武岩海岸', emoji: '🪨', type: '地質', rarity: 3, exp: 110, coins: 105, hidden: false },
+            { id: 'xiyu', name: '西嶼燈塔', emoji: '🔴', type: '文化', rarity: 2, exp: 85, coins: 90, hidden: false },
+            { id: 'qimei', name: '七美島秘岩', emoji: '🗻', type: '秘境', rarity: 4, exp: 160, coins: 150, hidden: true },
+            { id: 'flower', name: '花菜灣觀景台', emoji: '🌺', type: '景觀', rarity: 3, exp: 125, coins: 120, hidden: true }
+          ]
         }
       ],
       skills: [
@@ -1201,7 +1261,11 @@
         { id: 'taipeiClear', icon: '🏙️', name: '台北制霸', desc: '擊敗台北王。' },
         { id: 'hiddenFinder', icon: '🧭', name: '秘境發現者', desc: '發現任一隱藏景點。' },
         { id: 'bossHunter', icon: '⚔️', name: 'Boss 獵人', desc: '擊敗任一城市 Boss。' },
-        { id: 'allCities', icon: '👑', name: '環島達人', desc: '擊敗三個城市 Boss。' }
+        { id: 'threeCity', icon: '👑', name: '環島達人', desc: '擊敗三個城市 Boss。' },
+        { id: 'kaohsiungClear', icon: '🌊', name: '港都英雄', desc: '擊敗港都戰神。' },
+        { id: 'hualienClear', icon: '⛰️', name: '山海壯士', desc: '擊敗山海守護者。' },
+        { id: 'penghuClear', icon: '🏝️', name: '澎湖之王', desc: '擊敗澎湖海神。' },
+        { id: 'allCitiesClear', icon: '🌍', name: '全台征服者', desc: '擊敗所有城市 Boss。' }
       ]
     };
     const defaultState = () => ({
@@ -1291,8 +1355,9 @@
       return city.scenes.filter(scene => !scene.hidden || state.discoveredHidden.includes(scene.id));
     }
     function cityProgress(city) {
-      const total = city.scenes.length;
-      const done = city.scenes.filter(s => isChecked(s.id)).length;
+      const visibleScenes = city.scenes.filter(s => !s.hidden || state.discoveredHidden.includes(s.id));
+      const total = visibleScenes.length;
+      const done = visibleScenes.filter(s => isChecked(s.id)).length;
       return { done, total, percent: Math.floor((done / total) * 100) };
     }
     function levelRequired(level) {
@@ -1393,6 +1458,18 @@
         state.unlockedCities.push('tainan');
         toast('🔓 台南已解鎖');
       }
+      if (cityId === 'tainan' && !state.unlockedCities.includes('kaohsiung')) {
+        state.unlockedCities.push('kaohsiung');
+        toast('🔓 高雄已解鎖');
+      }
+      if (cityId === 'kaohsiung' && !state.unlockedCities.includes('hualien')) {
+        state.unlockedCities.push('hualien');
+        toast('🔓 花蓮已解鎖');
+      }
+      if (cityId === 'hualien' && !state.unlockedCities.includes('penghu')) {
+        state.unlockedCities.push('penghu');
+        toast('🔓 澎湖已解鎖');
+      }
       checkAchievements();
       saveState();
       renderAll();
@@ -1466,7 +1543,11 @@
       if (state.defeatedBosses.includes('taipei')) done.add('taipeiClear');
       if (state.discoveredHidden.length >= 1) done.add('hiddenFinder');
       if (state.defeatedBosses.length >= 1) done.add('bossHunter');
-      if (state.defeatedBosses.length >= 3) done.add('allCities');
+      if (state.defeatedBosses.length >= 3) done.add('threeCity');
+      if (state.defeatedBosses.includes('kaohsiung')) done.add('kaohsiungClear');
+      if (state.defeatedBosses.includes('hualien')) done.add('hualienClear');
+      if (state.defeatedBosses.includes('penghu')) done.add('penghuClear');
+      if (state.defeatedBosses.length >= 6) done.add('allCitiesClear');
       const newly = [...done].filter(id => !state.achievements.includes(id));
       newly.forEach(id => {
         const ach = gameData.achievements.find(a => a.id === id);
