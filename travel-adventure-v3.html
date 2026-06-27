@@ -276,6 +276,21 @@
       color: white;
       font-weight: 800;
       font-size: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn:hover::before {
+      left: 100%;
     }
     .btn.secondary {
       background: var(--panel-2);
@@ -297,6 +312,26 @@
     }
     .btn.full {
       width: 100%;
+    }
+    .login-card .btn {
+      animation: fadeInScale 0.8s ease-out backwards;
+      position: relative;
+      z-index: 2;
+    }
+    .login-card .btn:nth-of-type(1) {
+      animation-delay: 0.3s;
+    }
+    .login-card .btn:nth-of-type(2) {
+      animation-delay: 0.4s;
+    }
+    .login-card .btn:hover {
+      transform: translateY(-2px);
+    }
+    .login-card .btn.warning:hover {
+      box-shadow: 0 8px 24px rgba(245,158,11,.35);
+    }
+    .login-card .btn.secondary:hover {
+      box-shadow: 0 8px 24px rgba(255,255,255,.15);
     }
     .daily-card {
       display: grid;
@@ -767,6 +802,48 @@
       from { opacity: 0; transform: translateY(-6px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+    @keyframes pulse-border {
+      0%, 100% {
+        border-color: rgba(255,255,255,.28);
+      }
+      50% {
+        border-color: rgba(255,255,255,.56);
+      }
+    }
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255,255,255,.10), inset 0 0 15px rgba(255,255,255,.08);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255,255,255,.25), inset 0 0 20px rgba(255,255,255,.15);
+      }
+    }
     .login-screen {
       position: fixed;
       inset: 0;
@@ -780,7 +857,19 @@
         url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=60');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       color: white;
+      overflow: hidden;
+    }
+    .login-screen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,.08), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(29,155,240,.10), transparent 50%);
+      pointer-events: none;
+      animation: shimmer 6s infinite;
     }
     .login-screen.show {
       display: flex;
@@ -793,15 +882,23 @@
       border: 1px solid rgba(255,255,255,.25);
       backdrop-filter: blur(18px);
       box-shadow: 0 30px 80px rgba(0,0,0,.30);
+      position: relative;
+      z-index: 1;
+      animation: fadeInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .login-screen.show .login-card {
+      animation: fadeInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .login-card h1 {
       margin: 0 0 8px;
       font-size: 30px;
+      animation: float 3s ease-in-out infinite;
     }
     .login-card p {
       margin: 0 0 20px;
       opacity: .92;
       line-height: 1.55;
+      animation: fadeInScale 0.8s ease-out 0.1s backwards;
     }
     .input {
       width: 100%;
@@ -813,6 +910,14 @@
       outline: 0;
       font-size: 15px;
       margin-bottom: 10px;
+      transition: all 0.3s ease;
+      animation: fadeInScale 0.8s ease-out 0.2s backwards;
+    }
+    .input:focus {
+      border-color: rgba(255,255,255,.56);
+      background: rgba(255,255,255,.28);
+      box-shadow: 0 0 20px rgba(255,255,255,.15), inset 0 0 10px rgba(255,255,255,.08);
+      transform: translateY(-2px);
     }
     .input::placeholder {
       color: rgba(255,255,255,.72);
@@ -858,7 +963,8 @@
 <body>
   <div class="login-screen" id="loginScreen">
     <div class="login-card">
-      <h1>🌏 Travel Adventure </h1>
+      <h1>🌏 Travel Adventure</h1>
+      <p>展開你的全球冒險之旅</p>
       <input class="input" id="playerNameInput" placeholder="輸入玩家名稱，例如 Tom" value="Tom" />
       <button class="btn full warning" onclick="startGame()">開始冒險</button>
       <button class="btn full secondary mt8" onclick="quickStart()">快速體驗 Demo</button>
